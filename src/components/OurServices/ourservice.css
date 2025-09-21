@@ -1,0 +1,107 @@
+.our-works {
+  position: relative;
+  z-index: 99;
+  background-color: #0f0f0f;
+}
+.Ourwork_card {
+  padding: 70px 20px;
+}
+.Ourwork_card .container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.Ourwork_card .card_heading,
+.Ourwork_card .card_description {
+  width: 50%;
+}
+.Ourwork_card .card_heading {
+  font-family: var(--main-font);
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 100px;
+  text-transform: uppercase;
+  line-height: 93%;
+  letter-spacing: 0%;
+  color: #000000;
+}
+.Ourwork_card .card_description {
+  font-family: var(--heading-font);
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 20px;
+  line-height: 35px;
+  letter-spacing: 0%;
+  color: #000000;
+}
+.our-works .Heading-btn a {
+  padding: 25px 0px;
+}
+.our-works .Heading-btn .gradiant_border {
+  border-radius: 16px;
+}
+
+@media (max-width: 1550px) {
+  .Ourwork_card .card_heading {
+    font-size: 60px;
+  }
+  .Ourwork_card .card_description {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .Ourwork_card {
+    padding: 70px 20px 40px 20px;
+  }
+}
+@media (max-width: 768px) {
+  .heading_wrapper .container {
+    padding: 0px;
+  }
+  .our-works .Heading-btn a {
+    padding: 15px 0px;
+  }
+  .Ourwork_card .container {
+    flex-direction: column;
+  }
+  .Ourwork_card .card_heading,
+  .Ourwork_card .card_description {
+    width: 100%;
+  }
+  .Ourwork_card .card_heading {
+    font-size: 40px;
+    padding-bottom: 20px;
+  }
+  .ourwork-card .image_wrapper {
+    height: 300px;
+    width: 100%;
+  }
+  .ourwork-card .card_imformation .card-tag {
+    padding: 10px 15px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Ourwork_card .card_heading {
+    font-size: 30px;
+    padding-bottom: 15px;
+  }
+  .Ourwork-Card_wrapper .container {
+    padding: 0px;
+  }
+  .Ourwork_card .card_description {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .our-works .gradiant_border {
+    padding: 2px;
+  }
+  .Ourwork_card:nth-of-type(1) {
+    padding: 100px 20px 40px 20px;
+  }
+  .Ourwork_card {
+    padding: 30px 20px 30px 20px;
+  }
+}

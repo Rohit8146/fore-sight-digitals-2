@@ -1,0 +1,25 @@
+footer {
+  position: relative;
+  z-index: 3;
+  background: #0f0f0f;
+}
+.social-icons h3 {
+  font-size: 40px;
+  text-transform: uppercase;
+  padding: 20px 0px;
+  font-family: var(--main-font);
+}
+.border-t {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.social-icons img {
+  width: 25px;
+  object-fit: contain;
+}
+
+@media (max-width: 480px) {
+  footer .container img.footer__logo {
+    width: 200px;
+  }
+}

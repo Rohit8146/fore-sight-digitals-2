@@ -1,0 +1,166 @@
+.ourwork-card {
+  overflow: hidden;
+  border-radius: 16px;
+  background-color: #0f0f0f;
+}
+.card-border {
+  border-radius: 16px;
+  padding: 1px;
+}
+.ourwork-card .image_wrapper {
+  height: 600px;
+  width: 100%;
+}
+.ourwork-card .image_wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+.ourwork-card h3 {
+  font-family: var(--main-font);
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 50px;
+  text-transform: uppercase;
+  line-height: 93%;
+  color: #fff;
+}
+.ourwork-card .card_imformation {
+  padding: 50px 40px;
+}
+.ourwork-card .card_imformation .card-tag {
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-style: SemiBold;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  border-radius: 40px;
+  padding: 20px;
+  border: 1px solid #fff;
+  color: #fff;
+}
+.protfolio-tabs .tabs h3 {
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-style: SemiBold;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #fff;
+  padding: 15px 20px;
+  border: 1px solid transparent;
+}
+.protfolio-tabs .tabs h3.active {
+  background: #cc8cb8;
+  background: linear-gradient(
+    115deg,
+    rgba(204, 140, 184, 1) 0%,
+    rgba(135, 243, 146, 1) 11%,
+    rgba(7, 249, 233, 1) 23%,
+    rgba(153, 198, 251, 1) 39%,
+    rgba(212, 204, 254, 1) 51%,
+    rgba(60, 228, 248, 1) 66%,
+    rgba(248, 212, 239, 1) 79%,
+    rgba(211, 215, 240, 1) 100%
+  );
+  border-radius: 30px;
+  border-color: #1e1e1e;
+}
+.protfolio-tabs .tabs h3:hover {
+  background: #cc8cb8;
+  background: linear-gradient(
+    115deg,
+    rgba(204, 140, 184, 1) 0%,
+    rgba(135, 243, 146, 1) 11%,
+    rgba(7, 249, 233, 1) 23%,
+    rgba(153, 198, 251, 1) 39%,
+    rgba(212, 204, 254, 1) 51%,
+    rgba(60, 228, 248, 1) 66%,
+    rgba(248, 212, 239, 1) 79%,
+    rgba(211, 215, 240, 1) 100%
+  );
+  border-radius: 30px;
+  border-color: #1e1e1e;
+}
+
+.portfolio-card-wrapper h2 {
+  font-family: var(--main-font);
+}
+.filter-label {
+  display: none;
+}
+
+@media (max-width: 1550px) {
+  .ourwork-card .image_wrapper {
+    height: 500px;
+    width: 100%;
+  }
+  .ourwork-card h3 {
+    font-size: 36px;
+  }
+  .ourwork-card .card_imformation .card-tag {
+    padding: 14px 25px;
+    font-size: 16px;
+  }
+  .ourwork-card .card_imformation {
+    padding: 30px 20px;
+  }
+  .protfolio-tabs .tabs h3 {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .ourwork-card .image_wrapper {
+    height: 400px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .filter-label {
+    display: block;
+    color: #fff;
+    padding: 14px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid #fff;
+    border-radius: 40px;
+    font-weight: 600;
+  }
+  .tabs {
+    position: absolute;
+    width: 100%;
+    height: 0px;
+    top: 60px;
+    right: 0;
+    opacity: 0;
+    padding: 20px 30px;
+    background: #0f0f0f;
+    z-index: 3;
+    visibility: hidden;
+    transition: all 0.7s ease-in-out;
+  }
+  .active-filter {
+    height: 400px;
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.7s ease-in-out;
+  }
+}
+
+@media (max-width: 480px) {
+  .ourwork-card .image_wrapper {
+    height: 220px;
+    width: 100%;
+  }
+  .ourwork-card h3 {
+    font-size: 24px;
+  }
+  .ourwork-card .card_imformation .card-tag {
+    padding: 10px 14px;
+    font-size: 12px;
+  }
+}

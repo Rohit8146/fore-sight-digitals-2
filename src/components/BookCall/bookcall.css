@@ -1,0 +1,47 @@
+.bookcall-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.bookcall-container h2 {
+  text-align: center;
+}
+.bookcall-container .input_btn {
+  border-radius: 8px;
+}
+.bookcall-container .form_field .inputfield,
+.bookcall-container .form_field {
+  width: 100%;
+}
+.bookcall-container .gradiant_border {
+  border-radius: 16px;
+  padding: 2px;
+}
+.bookcall-container .gradiant_border > div {
+  border-radius: 16px;
+}
+.book-call a {
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-style: SemiBold;
+  font-size: 18px;
+  line-height: 100%;
+  text-align: center;
+  text-decoration: underline;
+  display: block;
+  color: #fff;
+}
+.bookcall-container .form_field.gradiant_border {
+  width: fit-content;
+}
+.bookcall-container .form_field.gradiant_border .gradiant_border {
+  padding: 0px;
+}
+.bookcall-container .form_field.gradiant_border .btn {
+  padding: 20px 0px !important;
+}
+@media (max-width: 1550px) {
+  .bookcall-container {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}

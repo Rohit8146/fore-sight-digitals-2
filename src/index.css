@@ -1,0 +1,195 @@
+@import "tailwindcss";
+
+:root {
+  --heading-font: "Plus Jakarta Sans", sans-serif;
+  --main-font: "Bebas Neue", sans-serif;
+}
+.loader {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+}
+.loader svg {
+  font-size: 20vw;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-color: #0f0f0f;
+  overflow-x: hidden;
+}
+section {
+  position: relative;
+  background-color: #0f0f0f;
+  z-index: 2;
+}
+.portfolio_Page {
+  padding-top: 150px;
+}
+.portfolio_Page .heading_wrapper h2 {
+  justify-content: center;
+  width: 100%;
+}
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.banner {
+  z-index: 0;
+}
+#main {
+  height: 250vh;
+  position: sticky;
+  top: 0px;
+  left: 0px;
+}
+#main canvas {
+  position: sticky;
+  top: 0px;
+  left: 0px;
+}
+#banner video {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  object-position: top;
+}
+.brand_slider {
+  position: relative;
+  background-color: #0f0f0f;
+  width: 100%;
+  max-width: 100%;
+}
+.gradiant_border {
+  padding: 4px;
+  background: #cc8cb8;
+  background: linear-gradient(
+    115deg,
+    rgba(204, 140, 184, 1) 0%,
+    rgba(135, 243, 146, 1) 11%,
+    rgba(7, 249, 233, 1) 23%,
+    rgba(153, 198, 251, 1) 39%,
+    rgba(212, 204, 254, 1) 51%,
+    rgba(60, 228, 248, 1) 66%,
+    rgba(248, 212, 239, 1) 79%,
+    rgba(211, 215, 240, 1) 100%
+  );
+  border-radius: 8px;
+  width: fit-content;
+}
+
+.cursor-outer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid #fff;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: background-color 0.3s ease;
+}
+
+.cursor-inner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #fff;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: background-color 0.3s ease;
+}
+
+@media (max-width: 1550px) {
+  body {
+    overflow-x: hidden;
+  }
+  .container {
+    max-width: 1200px;
+    padding: 0px 30px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .portfolio_Page {
+    padding-top: 80px;
+  }
+  .loader svg {
+    width: 700px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .portfolio_Page {
+    padding-top: 50px;
+  }
+  .loader svg {
+    width: 400px;
+    height: 250px;
+  }
+}
+@media (max-width: 768px) {
+  .cursor-inner,
+  .cursor-outer {
+    display: none;
+  }
+  #main {
+    height: 300vh;
+    position: sticky;
+    top: 0px;
+    left: 0px;
+  }
+  
+}
+@media (max-width: 480px) {
+  .container {
+    padding: 0 15px;
+  }
+  .our-works .Heading-btn a {
+    padding: 11px 0px;
+    width: 160px;
+    font-size: 14px;
+  }
+  .heading {
+    font-size: 36px;
+  }
+  .btn {
+    padding: 10px;
+    font-size: 14px;
+    width: 150px;
+  }
+  .loader svg {
+    width: 300px;
+    height: 200px;
+  }
+}
+
+.underline-hover {
+  position: relative;
+}
+.underline-hover:after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 1px;
+  background-color: #fff;
+  bottom: -2px;
+  left: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+.underline-hover:hover:after {
+  width: 100%;
+  visibility: visible;
+  transition: all 0.3s ease-in-out;
+}
