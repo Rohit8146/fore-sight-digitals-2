@@ -14,7 +14,7 @@ function Homepage() {
   
   return (
     <>
-      <Banner />
+      {/* <Banner /> */}
       <BrandSlider />
       <OurService />
       <OurWork />
