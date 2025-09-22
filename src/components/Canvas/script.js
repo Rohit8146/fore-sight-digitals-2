@@ -17,12 +17,9 @@ function canvasGenerator() {
 
   const setCanvasSize = () => {
     const pixelRatio = window.devicePixelRatio || 1;
-
-    // ✅ Detect mobile with matchMedia
     const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
     const width = window.innerWidth;
-    // ✅ On mobile, make banner shorter so it doesn’t look oversized
     const height = isMobile ? window.innerHeight * 1 : window.innerHeight;
 
     canvas.width = width * pixelRatio;
@@ -42,38 +39,49 @@ function canvasGenerator() {
 
   const currentFrame = (index, isMobile) =>
     isMobile
-      ? `./Mobile_frames/frame_${(index + 1).toString().padStart(4, "0")}.png`
-      : `./Desktop_frames/frame_${(index + 1).toString().padStart(4, "0")}.png`;
+      ? `./Mobile_frames/frame_${(index + 1)
+          .toString()
+          .padStart(4, "0")}.webp`
+      : `./Desktop_frames/frame_${(index + 1)
+          .toString()
+          .padStart(4, "0")}.webp`;
 
   let images = [];
   let videoFrame = { frame: 0 };
 
-  // ✅ Use matchMedia instead of innerWidth
   let isMobile = window.matchMedia("(max-width: 768px)").matches;
   let frameCount = isMobile ? mobileFrameCount : desktopFrameCount;
 
   console.log("isMobile:", isMobile);
 
-  function loadImages() {
+  // ✅ Lazy loading
+  function loadImagesLazy() {
     images = [];
     frameCount = isMobile ? mobileFrameCount : desktopFrameCount;
-    let imagesToLoad = frameCount;
 
-    for (let i = 0; i < frameCount; i++) {
-      const img = new Image();
-      img.onload = onLoad;
-      img.onerror = onLoad;
-      img.src = currentFrame(i, isMobile);
-      images.push(img);
-    }
+    // First frame immediately
+    const firstImg = new Image();
+    firstImg.onload = () => {
+      images[0] = firstImg;
+      render();
+      setUpScrollTrigger();
+      preloadRest(); // load other frames in background
+    };
+    firstImg.src = currentFrame(0, isMobile);
 
-    function onLoad() {
-      imagesToLoad--;
-      if (imagesToLoad === 0) {
-        setCanvasSize(); // ✅ resize properly once images are loaded
-        render();
-        setUpScrollTrigger();
+    // Preload the rest in background
+    function preloadRest() {
+      let i = 1;
+      function loadNext() {
+        if (i < frameCount) {
+          const img = new Image();
+          img.onload = () => (images[i] = img);
+          img.src = currentFrame(i, isMobile);
+          i++;
+          requestIdleCallback(loadNext); // load when browser is idle
+        }
       }
+      loadNext();
     }
   }
 
@@ -122,15 +130,15 @@ function canvasGenerator() {
     });
   }
 
-  // ✅ Load initial images
-  loadImages();
+  // ✅ Load initial images lazily
+  loadImagesLazy();
 
   // ✅ Re-check when resizing
   window.addEventListener("resize", () => {
     const nowMobile = window.matchMedia("(max-width: 768px)").matches;
     if (nowMobile !== isMobile) {
       isMobile = nowMobile;
-      loadImages();
+      loadImagesLazy();
     }
   });
 }
