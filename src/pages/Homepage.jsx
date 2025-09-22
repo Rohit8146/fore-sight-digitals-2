@@ -13,7 +13,6 @@ function Homepage() {
   return (
     <>
       <Canvas />
-      {/* <Banner /> */}
       <BrandSlider />
       <OurService />
       <OurWork />

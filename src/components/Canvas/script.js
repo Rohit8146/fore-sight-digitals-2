@@ -17,10 +17,19 @@ function canvasGenerator() {
 
   const setCanvasSize = () => {
     const pixelRatio = window.devicePixelRatio || 1;
-    canvas.width = window.innerWidth * pixelRatio;
-    canvas.height = window.innerHeight * pixelRatio;
-    canvas.style.width = window.innerWidth + "px";
-    canvas.style.height = window.innerHeight + "px";
+
+    // ✅ Detect mobile with matchMedia
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+    const width = window.innerWidth;
+    // ✅ On mobile, make banner shorter so it doesn’t look oversized
+    const height = isMobile ? window.innerHeight * 1 : window.innerHeight;
+
+    canvas.width = width * pixelRatio;
+    canvas.height = height * pixelRatio;
+    canvas.style.width = width + "px";
+    canvas.style.height = height + "px";
+
     context.setTransform(1, 0, 0, 1, 0, 0);
     context.scale(pixelRatio, pixelRatio);
   };
@@ -33,18 +42,17 @@ function canvasGenerator() {
 
   const currentFrame = (index, isMobile) =>
     isMobile
-      ? `./public/Mobile_frames/frame_${(index + 1)
-          .toString()
-          .padStart(4, "0")}.png`
-      : `./public/Desktop_frames/frame_${(index + 1)
-          .toString()
-          .padStart(4, "0")}.png`;
+      ? `./Mobile_frames/frame_${(index + 1).toString().padStart(4, "0")}.png`
+      : `./Desktop_frames/frame_${(index + 1).toString().padStart(4, "0")}.png`;
 
   let images = [];
   let videoFrame = { frame: 0 };
-  let frameCount =
-    window.innerWidth < 768 ? mobileFrameCount : desktopFrameCount;
-  let isMobile = window.innerWidth < 768;
+
+  // ✅ Use matchMedia instead of innerWidth
+  let isMobile = window.matchMedia("(max-width: 768px)").matches;
+  let frameCount = isMobile ? mobileFrameCount : desktopFrameCount;
+
+  console.log("isMobile:", isMobile);
 
   function loadImages() {
     images = [];
@@ -62,6 +70,7 @@ function canvasGenerator() {
     function onLoad() {
       imagesToLoad--;
       if (imagesToLoad === 0) {
+        setCanvasSize(); // ✅ resize properly once images are loaded
         render();
         setUpScrollTrigger();
       }
@@ -69,8 +78,9 @@ function canvasGenerator() {
   }
 
   const render = () => {
-    const canvasWidth = window.innerWidth;
-    const canvasHeight = window.innerHeight;
+    const canvasWidth = canvas.width / (window.devicePixelRatio || 1);
+    const canvasHeight = canvas.height / (window.devicePixelRatio || 1);
+
     context.clearRect(0, 0, canvasWidth, canvasHeight);
 
     const img = images[videoFrame.frame];
@@ -97,11 +107,8 @@ function canvasGenerator() {
   };
 
   function setUpScrollTrigger() {
-    ScrollTrigger.getAll().forEach((st) => st.kill()); // ✅ clear old triggers
-
     ScrollTrigger.create({
       trigger: ".hero",
-      height: `${window.innerWidth * 2.5}px`,
       start: "top top",
       end: `+=${window.innerWidth * 2.5}px`,
       pin: true,
@@ -120,7 +127,7 @@ function canvasGenerator() {
 
   // ✅ Re-check when resizing
   window.addEventListener("resize", () => {
-    const nowMobile = window.innerWidth < 768;
+    const nowMobile = window.matchMedia("(max-width: 768px)").matches;
     if (nowMobile !== isMobile) {
       isMobile = nowMobile;
       loadImages();

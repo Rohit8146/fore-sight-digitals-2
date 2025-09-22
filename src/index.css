@@ -22,7 +22,7 @@ body {
 section {
   position: relative;
   background-color: #0f0f0f;
-  z-index: 2;
+  z-index: 3;
 }
 .portfolio_Page {
   padding-top: 150px;
@@ -134,6 +134,9 @@ section {
   .cursor-inner,
   .cursor-outer {
     display: none;
+  }
+  .hero {
+    height: 300vh;
   }
 }
 @media (max-width: 480px) {

@@ -10,6 +10,7 @@ function Canvas() {
   }, []);
 
   return (
+    
     <div className="hero">
       <canvas></canvas>
     </div>
