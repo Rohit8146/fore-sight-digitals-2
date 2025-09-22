@@ -136,7 +136,7 @@ section {
     display: none;
   }
   .hero {
-    height: 300vh;
+    height: 250vh;
   }
 }
 @media (max-width: 480px) {
