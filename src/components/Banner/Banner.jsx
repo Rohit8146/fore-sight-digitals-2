@@ -7,22 +7,24 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 function Banner() {
   const videoRef = useRef(null);
   const videoContainer = useRef(null);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
   useEffect(() => {
-    if (window.innerWidth < 768) {
-      setIsMobile(true);
-    }
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
 
-    window.addEventListener("resize", () => {
-      if (window.innerWidth < 768) {
-        setIsMobile(true);
-      }
-    });
+    window.addEventListener("resize", handleResize);
 
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const coolVideo = videoRef.current;
-
     coolVideo.pause();
 
     const handleLoaded = () => {
@@ -31,7 +33,7 @@ function Banner() {
       ScrollTrigger.create({
         trigger: coolVideo,
         start: "top top",
-        end: "250% top",
+        end: "450% top",
         scrub: 3,
         pin: true,
         onUpdate: (self) => {
@@ -44,9 +46,8 @@ function Banner() {
 
     return () => {
       coolVideo.removeEventListener("loadedmetadata", handleLoaded);
-      ScrollTrigger.kill();
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <div ref={videoContainer} id="banner" className="banner">

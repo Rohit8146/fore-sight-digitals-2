@@ -3,7 +3,6 @@
 :root {
   --heading-font: "Plus Jakarta Sans", sans-serif;
   --main-font: "Bebas Neue", sans-serif;
-  --black-color : "#000"
 }
 .loader {
   position: fixed;
@@ -40,16 +39,8 @@ section {
 .banner {
   z-index: 0;
 }
-#main {
-  height: 250vh;
-  position: sticky;
-  top: 0px;
-  left: 0px;
-}
-#main canvas {
-  position: sticky;
-  top: 0px;
-  left: 0px;
+.hero {
+  height: 600vh;
 }
 #banner video {
   width: 100%;
@@ -144,13 +135,6 @@ section {
   .cursor-outer {
     display: none;
   }
-  #main {
-    height: 300vh;
-    position: sticky;
-    top: 0px;
-    left: 0px;
-  }
-  
 }
 @media (max-width: 480px) {
   .container {

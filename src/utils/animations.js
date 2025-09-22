@@ -3,30 +3,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// BANNER VIDEO ANIMATION
-export function bannerVideoAnimation(videoRef) {
-  const video = videoRef?.current;
-  if (!video) return;
-
-  video.addEventListener("loadedmetadata", () => {
-    gsap
-      .timeline({
-        scrollTrigger: {
-          id: "banner-video",
-          trigger: video,
-          start: "top top",
-          end: "bottom+=1500", // Adjusted for less conflict
-          scrub: 2,
-          // markers: true,
-        },
-      })
-      .to(video, {
-        currentTime: video.duration,
-        ease: "none",
-      });
-  });
-}
-
 // OUR SERVICES SECTION
 export function ourCardsAnmimation() {
   const wrapper = document.querySelector(".Ourwork-Card_wrapper");
@@ -41,10 +17,11 @@ export function ourCardsAnmimation() {
       scrollTrigger: {
         id: "our-services",
         trigger: wrapper,
+        scroller: "body",
         start: "top top",
         end: "+=1000", // Reduced scroll range
         pin: true,
-        scrub: 2,
+        scrub: 3,
         // markers: true,
       },
       defaults: { ease: "power2.out", duration: 1 },
