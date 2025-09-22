@@ -1,30 +1,48 @@
-import TestimonialsCard from './TestimonialsCard'
-import data from './data.js'
-import Heading from '../../ui/Heading.jsx'
-import './testimonials.css'
-import settings from '../../utils/slider.js'
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
+import React from "react";
+import TestimonialsCard from "./TestimonialsCard";
+import data from "./data.js";
+import Heading from "../../ui/Heading.jsx";
+import "./testimonials.css";
+import { Swiper, SwiperSlide } from "swiper/react";
 
-function Testimonials(){
-  
-
+function Testimonials() {
   return (
     <section>
-    <div className='testimonials pt-20 max-md:pt-3'>
-        <div className='container'>
-            <Heading title="What our clients say" />
+      <div className="testimonials pt-20 max-md:pt-3">
+        <div className="container">
+          <Heading title="What our clients say" />
         </div>
-        <Slider {...settings} className='testimonials_wrapper flex justify-between align-middle gap-10 py-15'>
-            {data.map((item, index) => { 
-                return (<TestimonialsCard key={index} item={item} />)
-                })
-            }
-        </Slider>
-    </div>
+        <div className="testimonails_wrapper p-15 max-sm:p-7">
+          <Swiper
+            spaceBetween={20} // Space between slides
+            slidesPerView={2}
+            loop={true}
+            autoplay={{
+              delay: 5000, // Autoplay speed
+              disableOnInteraction: false, // Keeps autoplay on interaction
+            }}
+            breakpoints={{
+              1024: {
+                slidesPerView: 2,
+              },
+              0: {
+                slidesPerView: 1,
+              }
+            }}
+            className="testimonials_wrapper flex justify-between align-middle gap-10 py-15"
+          >
+            {data.map((item, index) => {
+              return (
+                <SwiperSlide key={index}>
+                  <TestimonialsCard item={item} />
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        </div>
+      </div>
     </section>
-  )
+  );
 }
 
-export default Testimonials
+export default Testimonials;

@@ -73,32 +73,6 @@ export const whyForesightAnination = (index) => {
   });
 };
 
-// FOOTER LOGO ANIMATION
-export const footerAnimation = () => {
-  window.addEventListener("load", () => {
-    const footer = document.querySelector(".footer-logo-wrapper");
-    const images = footer?.querySelectorAll("img");
-    if (!footer || !images?.length) return;
-
-    images.forEach((image, index) => {
-      gsap
-        .timeline({
-          scrollTrigger: {
-            id: `footer-logo-${index}`,
-            trigger: footer,
-            start: "top bottom",
-            end: "top 70%",
-            scrub: 2,
-            // markers: true,
-          },
-        })
-        .to(image, {
-          y: -index * 18,
-          ease: "linear",
-        });
-    });
-  });
-};
 
 // IMAGE + TEXT SECTION
 export const imageTextAnimation = () => {

@@ -19,7 +19,7 @@ export default function Loader() {
     // Animate all paths together
     gsap.to(paths, {
       strokeDashoffset: 0,
-      duration: 3,
+      duration: 5,
       ease: "linear",
       stagger: 0,
     });
@@ -28,7 +28,7 @@ export default function Loader() {
     gsap.to(".loader", {
       opacity: 0,
       transform: "translateY(-100%)",
-      delay: 4,
+      delay: 6,
       duration: 2,
     });
   }, []);

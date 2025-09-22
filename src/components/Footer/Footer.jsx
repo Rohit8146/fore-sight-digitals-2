@@ -5,11 +5,33 @@ import LargeFooterLogo from "../../../public/large_logo.png";
 import SocialIcons from "./SocialIcons";
 import "./footer.css";
 import { footerData } from "./data.js";
-import { footerAnimation } from "../../utils/animations.js";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function Footer() {
   useEffect(() => {
-    footerAnimation();
+    const footer = document.querySelector(".footer-logo-wrapper");
+    const images = footer?.querySelectorAll("img");
+    if (!footer || !images?.length) return;
+
+    images.forEach((image, index) => {
+      gsap
+        .timeline({
+          scrollTrigger: {
+            id: `footer-logo-${index}`,
+            trigger: footer,
+            start: "top bottom",
+            end: "top 70%",
+            scrub: 2,
+          },
+        })
+        .to(image, {
+          y: -index * 18,
+          ease: "linear",
+        });
+    });
   }, []);
 
   return (

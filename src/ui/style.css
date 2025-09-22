@@ -116,8 +116,10 @@ input:focus {
   .heading_wrapper h2 {
     font-size: 32px;
     margin: 0 auto;
+    width: fit-content !important;
   }
   .heading {
     font-size: 30px;
+    line-height: 30px;
   }
 }

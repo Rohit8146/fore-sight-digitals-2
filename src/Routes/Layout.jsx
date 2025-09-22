@@ -20,11 +20,11 @@ function Layout() {
     const bodyTimeout = setTimeout(() => {
       document.body.style.overflowY = "unset";
       window.scrollTo({ top: 0, behavior: "smooth" });
-    }, 3000);
+    }, 6000);
 
     const loaderTimeout = setTimeout(() => {
       setLoading(false);
-    }, 6000);
+    }, 10000);
 
     // ✅ cleanup: clear timers + reset scroll in case component unmounts early
     return () => {

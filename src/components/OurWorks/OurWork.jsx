@@ -12,7 +12,7 @@ function OurWork() {
   }, [])
 
   return (
-    <section className="our-works py-20 max-sm:py-5">
+    <section className="our-works py-20 max-sm:py-10">
       <div className="container">
         <div className="heading_btn flex justify-between align-middle">
           <Heading title="OUR WORK" />
