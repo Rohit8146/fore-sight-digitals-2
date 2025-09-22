@@ -1,4 +1,3 @@
-
 import Banner from "../components/Banner/Banner";
 import BookCall from "../components/BookCall/BookCall";
 import BrandSlider from "../components/IconSlider/BrandSlider";
@@ -9,12 +8,10 @@ import OurWork from "../components/OurWorks/OurWork";
 import Testimonials from "../components/Testimonials/Testimonials";
 import WhyForesight from "../components/WhyForesight/WhyForesight";
 
-
 function Homepage() {
-  
   return (
     <>
-      {/* <Banner /> */}
+      <Banner />
       <BrandSlider />
       <OurService />
       <OurWork />
