@@ -61,18 +61,16 @@ export const ourWorkAnimation = () => {
 
 // WHY FORESIGHT SECTION
 export const whyForesightAnination = (index) => {
-  const container = document.querySelector(".hover_card");
-  const images = container?.querySelectorAll("img");
-  if (!images?.length) return;
+  let images = document.querySelectorAll(".hover_card img");
+  if (!images.length) return;
 
-  const imageHeight = images[0].offsetHeight || 0;
+  const naturalHeight = images[0].offsetHeight || 0;
   gsap.to(images, {
-    y: -(index * imageHeight),
+    y: -(index * naturalHeight),
     duration: 0.6,
     ease: "power1.out",
   });
 };
-
 
 // IMAGE + TEXT SECTION
 export const imageTextAnimation = () => {

@@ -12,7 +12,7 @@ function WhyForesight() {
     const headings = document.querySelectorAll(".hoverd_heading");
     headings.forEach((heading, index) => {
       heading.addEventListener("mouseover", () => {
-        console.log("dkshvkzdhfk");
+        console.log("skhvksdhfk");
         whyForesightAnination(index);
       });
     });
