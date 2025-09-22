@@ -15,14 +15,27 @@ function canvasGenerator() {
   const canvas = document.querySelector("canvas");
   const context = canvas.getContext("2d");
 
+  // ✅ Create loader element dynamically if not present
+  let loader = document.querySelector(".canvas-loader");
+  if (!loader) {
+    loader = document.createElement("div");
+    loader.className = "canvas-loader";
+    loader.style.position = "absolute";
+    loader.style.top = "50%";
+    loader.style.left = "50%";
+    loader.style.transform = "translate(-50%, -50%)";
+    loader.style.fontSize = "24px";
+    loader.style.color = "#fff";
+    loader.style.zIndex = "9999";
+    loader.innerText = "Loading...";
+    document.body.appendChild(loader);
+  }
+
   const setCanvasSize = () => {
     const pixelRatio = window.devicePixelRatio || 1;
-
-    // ✅ Detect mobile with matchMedia
     const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
     const width = window.innerWidth;
-    // ✅ On mobile, make banner shorter so it doesn’t look oversized
     const height = isMobile ? window.innerHeight * 1 : window.innerHeight;
 
     canvas.width = width * pixelRatio;
@@ -36,7 +49,7 @@ function canvasGenerator() {
   setCanvasSize();
   window.addEventListener("resize", setCanvasSize);
 
-  // 🔑 Desktop vs Mobile frames
+  // Desktop vs Mobile frames
   const desktopFrameCount = 239;
   const mobileFrameCount = 301;
 
@@ -50,7 +63,6 @@ function canvasGenerator() {
   let images = [];
   let videoFrame = { frame: 0 };
 
-  // ✅ Use matchMedia instead of innerWidth
   let isMobile = window.matchMedia("(max-width: 768px)").matches;
   let frameCount = isMobile ? mobileFrameCount : desktopFrameCount;
 
@@ -71,8 +83,15 @@ function canvasGenerator() {
 
     function onLoad() {
       imagesToLoad--;
+
+      // ✅ Hide loader after the first image is loaded
+      if (images[0] && images[0].complete && loader) {
+        loader.style.display = "none";
+      }
+
+      // All frames loaded
       if (imagesToLoad === 0) {
-        setCanvasSize(); // ✅ resize properly once images are loaded
+        setCanvasSize();
         render();
         setUpScrollTrigger();
       }
@@ -101,7 +120,7 @@ function canvasGenerator() {
         drawWidth = canvasWidth;
         drawHeight = drawWidth / imageAspect;
         drawX = 0;
-        drawY = (canvasHeight - drawHeight) / 2;
+        drawY = 0;
       }
 
       context.drawImage(img, drawX, drawY, drawWidth, drawHeight);
@@ -124,14 +143,13 @@ function canvasGenerator() {
     });
   }
 
-  // ✅ Load initial images
   loadImages();
 
-  // ✅ Re-check when resizing
   window.addEventListener("resize", () => {
     const nowMobile = window.matchMedia("(max-width: 768px)").matches;
     if (nowMobile !== isMobile) {
       isMobile = nowMobile;
+      loader.style.display = "block"; // show loader again
       loadImages();
     }
   });
