@@ -47,7 +47,7 @@ function Footer() {
             <FooterLink key={index} item={item} />
           ))}
         </ul>
-        <SocialIcons />
+        {/* <SocialIcons /> */}
         <div className="footer-logo-wrapper relative pt-0 pb-2 max-2xl:pb-15 max-sm:pb-0">
           <img
             src={LargeFooterLogo}
