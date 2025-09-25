@@ -4,9 +4,9 @@ import twitterLogo from "../../assets/images/twitter.png";
 
 export const footerData = [
   { name: "Home", link: "/" },
-  { name: "Portfolio", link: "/portfolio" },
-  { name: "Service", link: "/service" },
-  { name: "Contact", link: "/contact" },
+  { name: "Portfolio", link: "./portfolio" },
+  { name: "Service", link: "./service" },
+  { name: "Contact", link: "./contact" },
 ];
 
 
