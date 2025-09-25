@@ -61,9 +61,9 @@ function Layout() {
       >
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="/service" element={<Service />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="./service" element={<Service />} />
+          <Route path="./portfolio" element={<Portfolio />} />
+          <Route path="./contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
