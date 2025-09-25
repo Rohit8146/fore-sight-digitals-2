@@ -20,7 +20,7 @@ function BrandSlider() {
             <img
               src={image}
               alt={`brand-${index}`}
-              className="w-[170px] h-[100%] object-contain max-sm:w-[100px]"
+              className="w-[80px] h-[100%] object-contain max-sm:w-[45px]"
             />
           </div>
         ))}

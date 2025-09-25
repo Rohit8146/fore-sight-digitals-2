@@ -19,7 +19,7 @@ function ImageText() {
             </div>
             <div className="content flex flex-col gap-15 align-middle justify-center max-sm:gap-3">
               <h2>Your site instantly responsive</h2>
-              <Button link="#" label="Lets’s Connect" />
+              <Button link="/contact" label="Lets’s Connect" />
             </div>
           </div>
         </div>

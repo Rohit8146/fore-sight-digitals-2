@@ -5,6 +5,7 @@ import Layout from "./Routes/Layout";
 import Footer from "./components/Footer/Footer";
 import Cursor from "./components/Cursor/Cursor";
 import Lenis from "lenis";
+import { Path } from "three/src/Three.Core.js";
 function App() {
   useEffect(() => {
     const lenis = new Lenis();
@@ -14,6 +15,8 @@ function App() {
     }
 
     requestAnimationFrame(raf);
+
+    
   }, []);
 
   return (

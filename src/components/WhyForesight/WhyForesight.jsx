@@ -24,7 +24,7 @@ function WhyForesight() {
         <div className="container">
           <div className="heading_btn flex justify-between align-middle items-center max-2xl:pb-25 pb-40 max-sm:pb-5 ">
             <Heading title="Why Foresight" />
-            <Button link="#" label="Get in Touch" />
+            <Button link="/contact" label="Get in Touch" />
           </div>
           <div className="hover-card-wrapper">
             {data.map((item, index) => {

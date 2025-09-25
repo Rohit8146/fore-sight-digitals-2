@@ -6,9 +6,24 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [
     react(),
-    tailwindcss()
+    tailwindcss(),
   ],
   server: {
-    allowedHosts: ['6554277bed78.ngrok-free.app' , 'vast-tables-push.loca.lt'],
-  }
+    allowedHosts: ['6554277bed78.ngrok-free.app', 'vast-tables-push.loca.lt'],
+  },
+  build: {
+    // ✅ Increase the warning limit (optional)
+    chunkSizeWarningLimit: 1500,
+
+    // ✅ Split vendor libraries into their own chunks
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ['react', 'react-dom'],
+          gsap: ['gsap'], // if you’re using GSAP heavily
+          // add other heavy deps here
+        },
+      },
+    },
+  },
 })

@@ -21,7 +21,7 @@ function Content({ item, index }) {
         <div className="content_side w-[60%] px-30 max-2xl:px-10 max-md:w-[100%]">
           <h2>{item.title}</h2>
           <p>{item.description}</p>
-          <Button link="/comtact" label="Get in Touch" />
+          <Button link="/contact" label="Get in Touch" />
         </div>
       </div>
     </div>

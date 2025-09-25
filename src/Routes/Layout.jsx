@@ -14,6 +14,24 @@ function Layout() {
   useEffect(() => {
     setLoading(true);
 
+    // Change site title based on current path
+    switch (location.pathname) {
+      case "/":
+        document.title = "Foresight Digitals";
+        break;
+      case "/service":
+        document.title = "Services";
+        break;
+      case "/portfolio":
+        document.title = "Portfolio";
+        break;
+      case "/contact":
+        document.title = "Contact";
+        break;
+      default:
+        document.title = "404 Not Found";
+    }
+
     // Disable scroll
     document.body.style.overflowY = "hidden";
 
@@ -26,7 +44,6 @@ function Layout() {
       setLoading(false);
     }, 10000);
 
-    // ✅ cleanup: clear timers + reset scroll in case component unmounts early
     return () => {
       clearTimeout(bodyTimeout);
       clearTimeout(loaderTimeout);

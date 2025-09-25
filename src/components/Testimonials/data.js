@@ -14,9 +14,17 @@ const data = [
   {
     name: "United Agro Shafts",
     review:
-      "The web design delivered by your team aligns perfectly with our brand while ensuring efficiency and optimum functionality. The professionalism, creativity, and attention to detail truly stood out throughout the process. It was a great experience working with you, and I look forward to future collaborations.",
+      "My experience with Foresight Digitals has been consistently excellent. The team demonstrates professionalism, responsiveness, and a clear commitment to quality. Their solutions have not only met but often exceeded expectations, supporting both efficiency and reliability in our work. I particularly value their attention to detail and willingness to tailor their approach to client needs. I would confidently recommend their services to others seeking dependable and forward-thinking support.",
     userImage: dummyUser,
     userName: "Dharampreet Singh",
+    position: "Founder",
+  },
+  {
+    name: "Canadian space incubator",
+    review:
+      "The web design delivered by your team aligns perfectly with our brand while ensuring efficiency and optimum functionality. The professionalism, creativity, and attention to detail truly stood out throughout the process. It was a great experience working with you, and I look forward to future collaborations.",
+    userImage: dummyUser,
+    userName: "Gurpreet Singh",
     position: "Founder",
   },
 ];

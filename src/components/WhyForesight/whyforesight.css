@@ -36,6 +36,14 @@
   object-fit: cover;
 }
 
+.hoverd_heading{
+  transition: all 0.2s ease-in-out;
+}
+.hoverd_heading:hover{
+  transform: translateX(20px);
+  transition: all 0.s ease-in-out;
+}
+
 @media (max-width: 1024px) {
   .hover_card h3 {
     font-size: 40px !important;

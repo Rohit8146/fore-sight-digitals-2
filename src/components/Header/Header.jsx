@@ -28,6 +28,12 @@ function Header() {
     });
 
     headerAnimation();
+
+    if (location.pathname != "/") {
+      document.querySelector("header").style.backgroundColor = "#0f0f0f";
+    } else {
+      document.querySelector("header").style.backgroundColor = "transparent";
+    }
   }, [location.pathname]);
   const handleToggle = () => {
     setToggle(!toggle);
