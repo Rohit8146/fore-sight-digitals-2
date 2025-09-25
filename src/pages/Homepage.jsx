@@ -1,5 +1,5 @@
 import BookCall from "../components/BookCall/BookCall";
-import Canvas from "../components/canvas/Canvas";
+import Canvas from "../components/Canvas/Canvas";
 import BrandSlider from "../components/IconSlider/BrandSlider";
 import ImageText from "../components/Image-text/ImageText";
 import OurService from "../components/OurServices/OurService";
