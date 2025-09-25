@@ -1,6 +1,6 @@
 import hoverImage from '../../assets/images/hover_card.png'
-import hoverImage1 from '../../assets/images/service_2.png'
-import hoverImage2 from '../../assets/images/service_3.png'
+import hoverImage1 from '../../assets/images/service_hover_2.png'
+import hoverImage2 from '../../assets/images/service_hover_1.png'
 import hoverImage3 from '../../assets/images/hover_card.png'
 
 
