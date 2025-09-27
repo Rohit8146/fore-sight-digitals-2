@@ -5,7 +5,10 @@
   font-size: 18px;
   line-height: 100%;
 }
-
+ header .logo_wrapper img {
+    height: 65px;
+    object-fit: contain;
+  }
 @media (max-width: 1550px) {
   header .header_inner {
     padding: 15px 0px;

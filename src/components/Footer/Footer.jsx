@@ -7,6 +7,7 @@ import "./footer.css";
 import { footerData } from "./data.js";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { hexToRgb } from "@mui/material/styles";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -28,7 +29,7 @@ function Footer() {
           },
         })
         .to(image, {
-          y: -index * 18,
+          y: -index * 10,
           ease: "linear",
         });
     });
@@ -42,12 +43,12 @@ function Footer() {
           alt="Footer Logo"
           className="footer-logo footer__logo mx-auto"
         />
-        <ul className="footer-links flex  gap-30 justify-center align-center pt-15 pb-10 max-2xl:gap-12 max-2xl:pt-5 max-2xl max-sm:flex-col max-sm:gap-5 max-sm:items-center">
+        <ul className="footer-links flex  gap-30 justify-center align-center pt-15 pb-40 max-2xl:gap-12 max-2xl:pt-5 max-2xl max-sm:flex-col max-sm:gap-5 max-sm:items-center max-sm:pb:35">
           {footerData.map((item, index) => (
             <FooterLink key={index} item={item} />
           ))}
         </ul>
-        {/* <SocialIcons /> */}
+        {/* <SocialIcons />/ */}
         <div className="footer-logo-wrapper relative pt-0 pb-2 max-2xl:pb-15 max-sm:pb-0">
           <img
             src={LargeFooterLogo}
